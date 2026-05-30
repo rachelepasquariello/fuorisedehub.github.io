@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FuoriSede Hub è la community per studenti fuorisede: guide su convivenza, spesa, cucina e mercatino usato universitario."
+    />
+    <title>FuoriSede Hub | Community per studenti fuorisede</title>
+
+    <style>
+      :root {
+        --primary: #00A8E8;
+        --primary-dark: #0077B6;
+        --accent: #FF5A5F;
+        --accent-dark: #E84855;
+        --cyan: #8EDDF9;
+        --ink: #2B2D42;
+        --muted: #5F6472;
+        --bg: #F8F9FA;
+        --surface: #ffffff;
+        --soft: #EAF7FD;
+        --line: #DCE7EF;
+        --shadow: 0 20px 56px rgba(0, 119, 182, 0.14);
+        --radius-sm: 10px;
+        --radius-md: 18px;
+        --radius-lg: 28px;
+        --container: min(1120px, calc(100% - 32px));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(0, 168, 232, 0.16), transparent 30rem),
+          radial-gradient(circle at top right, rgba(255, 90, 95, 0.14), transparent 26rem),
+          linear-gradient(180deg, var(--bg) 0%, #ffffff 48%);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      input,
+      button {
+        font: inherit;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.88);
+        border-bottom: 1px solid rgba(231, 226, 243, 0.92);
+        backdrop-filter: blur(16px);
+      }
+
+      .navbar {
+        width: var(--container);
+        min-height: 76px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--primary), var(--cyan));
+        border-radius: 12px;
+        font-size: 0.84rem;
+        box-shadow: 0 12px 28px rgba(0, 168, 232, 0.24);
+      }
+
+      .nav-toggle {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        background: var(--soft);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+      }
+
+      .nav-toggle span,
+      .nav-toggle span::before,
+      .nav-toggle span::after {
+        width: 20px;
+        height: 2px;
+        display: block;
+        background: currentColor;
+        border-radius: 999px;
+        content: "";
+      }
+
+      .nav-toggle span::before {
+        transform: translateY(-6px);
+      }
+
+      .nav-toggle span::after {
+        transform: translateY(4px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--primary);
+      }
+
+      /* Main layout */
+      main {
+        width: var(--container);
+        margin: 0 auto;
+      }
+
+      .hero {
+        min-height: calc(100svh - 76px);
+        padding: 56px 0 48px;
+        display: grid;
+        align-items: center;
+        gap: 34px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 18px;
+        font-size: clamp(3rem, 17vw, 5.8rem);
+        line-height: 0.94;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 9vw, 3.4rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.22rem;
+        line-height: 1.2;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      .hero-text {
+        max-width: 60ch;
+        margin-bottom: 28px;
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border: 0;
+        border-radius: var(--radius-sm);
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        color: #1d1500;
+        background: var(--accent);
+        box-shadow: 0 14px 34px rgba(255, 90, 95, 0.24);
+      }
+
+      .button-primary:hover,
+      .button-primary:focus-visible {
+        background: var(--accent-dark);
+      }
+
+      .button-secondary {
+        color: var(--primary);
+        background: var(--soft);
+        border: 1px solid var(--line);
+      }
+
+      .hero-card {
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(231, 226, 243, 0.94);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow);
+      }
+
+      .responsive-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+      }
+
+      .hero-image {
+        aspect-ratio: 4 / 3;
+        margin-top: 18px;
+      }
+
+      .cluster-image {
+        aspect-ratio: 16 / 10;
+        margin-bottom: 18px;
+      }
+
+      .hero-card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--primary);
+        font-size: clamp(3rem, 18vw, 5rem);
+        line-height: 1;
+      }
+
+      .cluster-section {
+        padding: 48px 0 76px;
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin-bottom: 28px;
+      }
+
+      .cluster-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .cluster-card {
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(231, 226, 243, 0.94);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow);
+        transition: transform 180ms ease;
+      }
+
+      .cluster-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .cluster-number {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 24px;
+        display: grid;
+        place-items: center;
+        color: var(--primary);
+        background: var(--soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font-weight: 800;
+      }
+
+      .cluster-card a {
+        color: var(--primary);
+        font-weight: 800;
+      }
+
+      /* Footer */
+      .site-footer {
+        color: #ffffff;
+        background: var(--ink);
+      }
+
+      .footer-inner {
+        width: var(--container);
+        margin: 0 auto;
+        padding: 42px 0;
+        display: grid;
+        gap: 30px;
+      }
+
+      .footer-newsletter {
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-md);
+      }
+
+      .footer-newsletter h2 {
+        max-width: 14ch;
+      }
+
+      .footer-newsletter p,
+      .footer-meta p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .newsletter-form {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .newsletter-form label {
+        font-weight: 800;
+      }
+
+      .newsletter-fields {
+        display: grid;
+        gap: 10px;
+      }
+
+      .newsletter-fields input {
+        width: 100%;
+        min-height: 46px;
+        padding: 0 14px;
+        color: var(--ink);
+        background: #ffffff;
+        border: 0;
+        border-radius: var(--radius-sm);
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 22px;
+      }
+
+      .social-links,
+      .legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .social-links a,
+      .legal-links a {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 700;
+      }
+
+      .social-links a:hover,
+      .legal-links a:hover,
+      .social-links a:focus-visible,
+      .legal-links a:focus-visible {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        width: var(--container);
+        margin: 0 auto;
+        padding: 18px 0;
+        color: rgba(255, 255, 255, 0.62);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 0.92rem;
+      }
+
+      @media (min-width: 720px) {
+        .nav-toggle {
+          display: none;
+        }
+
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          font-size: 0.94rem;
+        }
+
+        .hero {
+          grid-template-columns: 1.08fr 0.92fr;
+          padding: 76px 0 64px;
+        }
+
+        .cluster-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .cluster-card {
+          min-height: 260px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .cluster-card a {
+          margin-top: auto;
+        }
+
+        .newsletter-fields {
+          grid-template-columns: 1fr auto;
+        }
+
+        .footer-links {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 960px) {
+        .footer-inner {
+          grid-template-columns: 1.15fr 0.85fr;
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 360px) {
+        :root {
+          --container: min(100% - 24px, 1120px);
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Navigazione principale">
+        <a class="logo" href="/" aria-label="FuoriSede Hub home">
+          <span class="logo-mark" aria-hidden="true">FH</span>
+          <span>FuoriSede Hub</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Apri menu di navigazione">
+          <span aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/community/">Vita in Condivisione</a></li>
+          <li><a href="/cucina/">Spesa &amp; Cucina</a></li>
+          <li><a href="/mercatino/">Mercatino Usato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Community universitaria</p>
+          <h1 id="hero-title">Vivere fuori sede, ma con una crew</h1>
+          <p class="hero-text">
+            Guide pratiche, dritte per risparmiare, convivenza più semplice e un
+            mercatino pensato per studenti universitari fuorisede.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/community/">Esplora la community</a>
+            <a class="button button-secondary" href="/mercatino/">Vai al mercatino</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Anteprima community">
+          <p class="eyebrow">FuoriSede Hub</p>
+          <strong>3</strong>
+          <p>
+            Vita in condivisione, spesa e cucina, mercatino usato: tre cluster
+            per affrontare la vita universitaria fuori sede con più leggerezza.
+          </p>
+          <img
+            class="responsive-image hero-image"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+            alt="Studenti universitari fuorisede collaborano e studiano insieme in casa"
+            width="1200"
+            height="900"
+          />
+        </aside>
+      </section>
+
+      <section class="cluster-section" aria-labelledby="cluster-title">
+        <div class="section-heading">
+          <p class="eyebrow">Cluster SEO</p>
+          <h2 id="cluster-title">Tutto quello che serve quando vivi lontano da casa</h2>
+          <p>
+            Percorsi chiari, contenuti pratici e link pensati per aiutare gli
+            studenti a trovare subito la sezione giusta.
+          </p>
+        </div>
+
+        <div class="cluster-grid">
+          <article class="cluster-card">
+            <img
+              class="responsive-image cluster-image"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+              alt="Coinquilini universitari studiano insieme in un appartamento condiviso"
+              width="900"
+              height="563"
+              loading="lazy"
+            />
+            <span class="cluster-number">01</span>
+            <h3>Vita in Condivisione</h3>
+            <p>Regole casa, coinquilini, spese condivise e strumenti per convivere meglio.</p>
+            <a href="/community/">Vai al cluster</a>
+          </article>
+
+          <article class="cluster-card">
+            <img
+              class="responsive-image cluster-image"
+              src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=900&q=80"
+              alt="Cena economica per studenti fuorisede con piatti semplici e colorati"
+              width="900"
+              height="563"
+              loading="lazy"
+            />
+            <span class="cluster-number">02</span>
+            <h3>Spesa &amp; Cucina</h3>
+            <p>Ricette economiche, spesa smart e idee svuotafrigo per studenti.</p>
+            <a href="/cucina/">Vai al cluster</a>
+          </article>
+
+          <article class="cluster-card">
+            <img
+              class="responsive-image cluster-image"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80"
+              alt="Libri universitari usati impilati per il mercatino studenti"
+              width="900"
+              height="563"
+              loading="lazy"
+            />
+            <span class="cluster-number">03</span>
+            <h3>Mercatino Usato</h3>
+            <p>Libri usati, mobili, piccoli elettrodomestici e scambi tra studenti.</p>
+            <a href="/mercatino/">Vai al cluster</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <section class="footer-newsletter" aria-labelledby="newsletter-title">
+          <p class="eyebrow">Sconti e offerte</p>
+          <h2 id="newsletter-title">Sblocca le dritte da fuorisede</h2>
+          <p>
+            Iscriviti alla newsletter per ricevere offerte, risorse utili e
+            accesso alle chat di gruppo della community.
+          </p>
+
+          <form class="newsletter-form" action="#" method="post">
+            <label for="newsletter-email">Email</label>
+            <div class="newsletter-fields">
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder="nome@email.com"
+                required
+              />
+              <button class="button button-primary" type="submit">Iscriviti</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="footer-links">
+          <section aria-labelledby="social-title">
+            <h2 id="social-title">Chat community</h2>
+            <ul class="social-links">
+              <li><a href="#" rel="nofollow">Instagram</a></li>
+              <li><a href="#" rel="nofollow">Telegram</a></li>
+              <li><a href="#" rel="nofollow">Discord</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-meta" aria-labelledby="legal-title">
+            <h2 id="legal-title">Info</h2>
+            <p>Una piattaforma statica per studenti universitari fuorisede.</p>
+            <ul class="legal-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>&copy; 2026 FuoriSede Hub. Tutti i diritti riservati.</small>
+      </div>
+    </footer>
+  </body>
+</html>
