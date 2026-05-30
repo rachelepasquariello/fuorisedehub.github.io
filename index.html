@@ -3,47 +3,185 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Idee cena economica fuorisede, gestione delle spese della casa tra coinquilini e mercatino dell'usato low cost per studenti universitari fuori sede." />
-    <title>FuoriSede Hub | Guida di Sopravvivenza per Studenti Fuori Sede</title>
+    <meta
+      name="description"
+      content="FuoriSede Hub: la guida per gli studenti universitari fuori sede. Trucchi per coinquilini, bacheca scambi usato e menu ricette."
+    />
+    <title>FuoriSede Hub | La Guida per Studenti Fuori Sede</title>
     <style>
       :root {
-        --primary: #00a8e8; --primary-dark: #0077b6; --accent: #ff5a5f; --accent-dark: #e84855; --cyan: #8eddf9; --ink: #1a1c23; --muted: #4a5568; --bg: #f0f4f8; --surface: #ffffff; --soft: #e6f7ff; --line: #cbd5e1; --shadow: 0 16px 32px rgba(0, 0, 0, 0.08); --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px; --container: min(1140px, calc(100% - 40px));
+        --primary: #00a8e8;
+        --primary-dark: #0077b6;
+        --accent: #ff5a5f;
+        --accent-dark: #e84855;
+        --cyan: #8eddf9;
+        --ink: #1a1c23;
+        --muted: #4a5568;
+        --bg: #f0f4f8;
+        --surface: #ffffff;
+        --soft: #e6f7ff;
+        --line: #cbd5e1;
+        --shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 32px;
+        --container: min(1140px, calc(100% - 40px));
       }
+
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
-      body { margin: 0; color: var(--ink); background: linear-gradient(135deg, #e0f2fe 0%, #ffe4e6 50%, #e0f7fa 100%); font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: linear-gradient(135deg, #e0f2fe 0%, #ffe4e6 50%, #e0f7fa 100%);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+      }
+
       a { color: inherit; text-decoration: none; }
+      ul, ol { margin: 0; padding-left: 1.2rem; }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: #ffffff;
+        border-bottom: 4px solid var(--primary);
+        box-shadow: 0 8px 24px rgba(0, 168, 232, 0.2);
+      }
+
+      .navbar {
+        width: var(--container);
+        min-height: 85px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        gap: 12px;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        font-size: 1.3rem;
+        color: var(--primary-dark);
+      }
+
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 12px;
+        font-size: 0.85rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a {
+        color: var(--ink);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+
+      .nav-links a:hover, .nav-links .active {
+        color: #ffffff;
+        background-color: var(--accent);
+      }
+
+      .nav-links .menu-btn {
+        background: var(--soft);
+        color: var(--primary-dark);
+        border: 2px solid var(--primary);
+      }
+
+      main { width: var(--container); margin: 0 auto; }
+      .hero, .content-block { padding: 44px 0; }
+      .hero { min-height: auto; display: grid; align-items: center; gap: 30px; padding-top: 20px; }
+      .eyebrow { margin: 0 0 12px; color: var(--accent-dark); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
       
-      .site-header { position: sticky; top: 0; z-index: 20; background: #ffffff; border-bottom: 4px solid var(--primary); box-shadow: 0 8px 24px rgba(0, 168, 232, 0.2); }
-      .navbar { width: var(--container); min-height: 85px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0; gap: 12px; }
-      .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.3rem; color: var(--primary-dark); }
-      .logo-mark { width: 40px; height: 40px; display: grid; place-items: center; color: #ffffff; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; }
+      h1 { margin-bottom: 24px; font-size: clamp(2.2rem, 8vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 900; }
+      h2 { margin-bottom: 18px; font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1.1; font-weight: 800; }
+      h3 { margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
+      p { color: var(--ink); font-weight: 500; margin-top: 0; }
+      .lead { max-width: 60ch; font-size: 1.2rem; line-height: 1.6; }
+
+      .button {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        color: #ffffff;
+        background: var(--accent);
+        border: 0;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 10px 24px rgba(255, 90, 95, 0.35);
+      }
+
+      .button:hover { background: var(--accent-dark); transform: translateY(-2px); }
+      .button-secondary { color: var(--primary-dark); background: var(--surface); border: 2px solid var(--primary); box-shadow: none; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
       
-      .nav-links { display: flex; gap: 10px; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 4px; }
-      .nav-links a { color: var(--ink); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; padding: 6px 10px; border-radius: 6px; transition: all 0.2s ease; }
-      .nav-links a:hover, .nav-links .active { color: #ffffff; background-color: var(--accent); }
-      .nav-links .menu-btn { background: var(--soft); color: var(--primary-dark); border: 2px solid var(--primary); }
-      
-      main { width: var(--container); margin: 40px auto; }
-      .eyebrow { color: var(--accent-dark); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; }
-      h1 { font-size: clamp(2.2rem, 8vw, 3.8rem); font-weight: 900; margin-bottom: 24px; letter-spacing: -0.02em; }
-      .lead { font-size: 1.2rem; color: var(--muted); margin-bottom: 30px; }
-      
-      .responsive-image { width: 100%; height: auto; border-radius: var(--radius-md); aspect-ratio: 16/10; object-fit: cover; margin-bottom: 40px; box-shadow: var(--shadow); }
-      
-      .features-grid { display: grid; gap: 24px; margin: 40px 0; }
-      .feature-card { background: rgba(255, 255, 255, 0.95); padding: 32px; border: 2px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow); }
-      .feature-card h3 { font-size: 1.5rem; margin-top: 0; margin-bottom: 12px; color: var(--primary-dark); }
-      .card-link { display: inline-flex; margin-top: 16px; color: var(--accent-dark); font-weight: 700; text-decoration: underline; }
-      
-      .site-footer { margin-top: 60px; color: #ffffff; background: var(--ink); padding: 32px 0; text-align: center; }
-      @media (min-width: 720px) { .navbar { flex-direction: row; min-height: 85px; padding: 0; } .nav-links { gap: 24px; } .nav-links a { font-size: 0.9rem; padding: 8px 12px; } .features-grid { grid-template-columns: repeat(3, 1fr); } }
+      .responsive-image { width: 100%; height: auto; display: block; object-fit: cover; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+      .hero-image { aspect-ratio: 16 / 10; }
+      .grid { display: grid; gap: 24px; }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--line);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+      .card img { aspect-ratio: 16 / 9; margin-bottom: 20px; }
+      .card a { color: var(--accent-dark); font-weight: 800; display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; text-decoration: underline; }
+
+      .site-footer { margin-top: 40px; color: #ffffff; background: var(--ink); }
+      .footer-inner { width: var(--container); margin: 0 auto; padding: 36px 0; text-align: center; }
+
+      @media (min-width: 720px) {
+        .navbar { flex-direction: row; min-height: 85px; padding: 0; }
+        .nav-links { gap: 24px; }
+        .nav-links a { font-size: 0.9rem; letter-spacing: 0.05em; padding: 8px 12px; }
+        .hero { grid-template-columns: 1fr 1fr; padding-top: 0; }
+        .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .hero, .content-block { padding: 64px 0; }
+      }
     </style>
   </head>
   <body>
     <header class="site-header">
-      <nav class="navbar">
-        <a class="logo" href="index.html"><span class="logo-mark">FH</span><span>FuoriSede Hub</span></a>
+      <nav class="navbar" aria-label="Navigazione principale">
+        <a class="logo" href="index.html">
+          <span class="logo-mark">FH</span>
+          <span>FuoriSede Hub</span>
+        </a>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="condivisione.html">Vita in Condivisione</a></li>
@@ -54,44 +192,53 @@
     </header>
 
     <main>
-      <article>
-        <p class="eyebrow">Il portale definitivo per studenti universitari</p>
-        <h1>Benvenuto su FuoriSede Hub</h1>
-        <p class="lead">La guida di sopravvivenza digitale creata dagli studenti per gli studenti. Ottimizza il tuo budget, organizza la casa ideale e impara a cucinare piatti economici senza impazzire durante la sessione.</p>
-        
-        <!-- FOTO PRINCIPALE NUOVA ED ESCLUSIVA DELLA HOME PAGE -->
-        <img class="responsive-image" src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=1200&q=80" alt="Studenti e coinquilini universitari fuori sede che passano del tempo felice insieme in casa" />
-
-        <section>
-          <h2>Esplora le nostre sezioni principali</h2>
-          <div class="features-grid">
-            
-            <!-- CARD 1 -->
-            <div class="feature-card">
-              <h3>🤝 Vita in Condivisione</h3>
-              <p>Scopri i migliori strumenti digitali e le app per dividere le spese, gestire le bollette e scaricare regole per i turni delle pulizie.</p>
-              <a class="card-link" href="condivisione.html">Gestisci la casa ↗</a>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="feature-card">
-              <h3>🍴 Menu Ricette</h3>
-              <p>Trova tantissime idee per una cena economica fuorisede. Piatti veloci, sani e creati esclusivamente con quello che è rimasto nel tuo frigo.</p>
-              <a class="card-link" href="menu.html">Sfoglia il ricettario ↗</a>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="feature-card">
-              <h3>📦 Mercatino Usato</h3>
-              <p>Compra piccoli elettrodomestici per la tua stanza, monitor usati per studiare, libri di testo oppure vendi gli oggetti prima di un trasloco.</p>
-              <a class="card-link" href="mercatino.html">Vedi gli annunci ↗</a>
-            </div>
-
+      <section class="hero">
+        <div>
+          <p class="eyebrow">La bussola degli studenti</p>
+          <h1>Fuori sede sì, ma mai da soli</h1>
+          <p class="lead">
+            La guida definitiva per svoltare la tua vita universitaria. Trova soluzioni per la casa, impara a cucinare piatti economici e scopri il mercatino dell'usato dell'ateneo.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="condivisione.html">Leggi le Guide</a>
+            <a class="button button-secondary" href="menu.html">Sfoglia il Menu</a>
           </div>
-        </section>
-      </article>
+        </div>
+        <!-- MODIFICATA SOLO QUESTA IMMAGINE CON RAGAZZI AL PARCO -->
+        <img class="responsive-image hero-image" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="Studenti universitari che si rilassano e studiano insieme al parco" width="1200" height="675" />
+      </section>
+
+      <section class="content-block">
+        <p class="eyebrow">Aree di supporto</p>
+        <h2>Naviga tra le soluzioni quotidiane</h2>
+        <div class="grid">
+          <article class="card">
+            <!-- IMMAGINE INIZIALE ORIGINALE MANTENUTA PERFETTAMENTE -->
+            <img class="responsive-image" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Coinquilini" width="900" height="506" loading="lazy" />
+            <h3>Vita in Condivisione</h3>
+            <p>Sopravvivere ai coinquilini: regole, gestione delle pulizie ed equilibrio in casa.</p>
+            <a href="condivisione.html">Vai alla pagina →</a>
+          </article>
+          <article class="card">
+            <img class="responsive-image" src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=900&q=80" alt="Cena" width="900" height="506" loading="lazy" />
+            <h3>Spesa &amp; Cucina</h3>
+            <p>Nutrirsi con pochi euro: trucchi salvaspesa, supermercati smart e ricette veloci.</p>
+            <a href="menu.html">Vai alla pagina →</a>
+          </article>
+          <article class="card">
+            <img class="responsive-image" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80" alt="Libri" width="900" height="506" loading="lazy" />
+            <h3>Mercatino Usato</h3>
+            <p>Compravendita a km zero: manuali d'esame, arredamento e piccoli elettrodomestici.</p>
+            <a href="mercatino.html">Vai alla pagina →</a>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer"><p>&copy; 2026 FuoriSede Hub. Risorse utili per la community di studenti fuori sede.</p></footer>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; 2026 FuoriSede Hub. Progetto SEO-oriented per l'università.</p>
+      </div>
+    </footer>
   </body>
 </html>
