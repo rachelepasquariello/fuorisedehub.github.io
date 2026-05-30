@@ -4,35 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Idee cena economica fuorisede: il menu ricette svuotafrigo definitivo per gli studenti che vogliono mangiare bene spendendo pochissimo." />
-    <title>Idee cena economica fuorisede: Il Menu Svuotafrigo | FuoriSede Hub</title>
-
-    <!-- DATI STRUTTURATI SCHEMA.ORG PER LA SEO TECNICA -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Recipe",
-        "name": "Pollo al limone economico per studenti fuorisede",
-        "author": {
-          "@type": "Organization",
-          "name": "FuoriSede Hub"
-        },
-        "description": "Una ricetta veloce, economica e gustosa per studenti fuorisede: straccetti di pollo cotti in padella con una cremosa salsa al limone.",
-        "prepTime": "PT5M",
-        "cookTime": "PT10M",
-        "totalTime": "PT15M",
-        "recipeYield": "1 porzione abbondante",
-        "recipeCategory": "Cena economica",
-        "recipeCuisine": "Studentesca",
-        "keywords": "idee cena economica fuorisede, ricetta svuotafrigo, cucina studenti",
-        "recipeIngredient": [
-          "150 g di petto di pollo a fette",
-          "1 cucchiaio di farina",
-          "Succo di mezzo limone",
-          "1 cucchiaio di olio extravergine di oliva",
-          "Sale e pepe q.b."
-        ]
-      }
-    </script>
+    
+    <!-- TITOLO DELLA PAGINA VISIBILE SULLA SCHEDA DEL BROWSER -->
+    <title>Menu Ricette Economiche | FuoriSede Hub</title>
 
     <style>
       :root {
@@ -52,9 +26,9 @@
         --container: min(1140px, calc(100% - 40px));
       }
 
-      * { box-sizing: border-box; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
-        margin: 0; color: var(--ink);
+        color: var(--ink);
         background: linear-gradient(135deg, #e0f2fe 0%, #ffe4e6 50%, #e0f7fa 100%);
         font-family: system-ui, -apple-system, sans-serif; line-height: 1.6;
       }
@@ -65,7 +39,7 @@
       .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.3rem; color: var(--primary-dark); }
       .logo-mark { width: 40px; height: 40px; display: grid; place-items: center; color: #ffffff; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; }
       
-      .nav-links { display: flex; gap: 10px; list-style: none; padding: 0; margin: 0; max-width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 4px; }
+      .nav-links { display: flex; gap: 10px; list-style: none; max-width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 4px; }
       .nav-links a { color: var(--ink); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; padding: 6px 10px; border-radius: 6px; transition: all 0.2s ease; }
       
       .nav-links a:hover, .nav-links .active {
@@ -74,22 +48,22 @@
       }
 
       main { width: var(--container); margin: 40px auto; }
-      .eyebrow { color: var(--accent-dark); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; }
-      h1 { font-size: clamp(2rem, 7vw, 3.8rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.02em; }
+      .eyebrow { color: var(--accent-dark); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; display: block; }
+      h1 { font-size: clamp(2rem, 7vw, 3.8rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.2; }
       .lead { font-size: 1.2rem; color: var(--muted); margin-bottom: 30px; }
       
-      .responsive-image { width: 100%; height: auto; border-radius: var(--radius-md); aspect-ratio: 16/9; object-fit: cover; margin-bottom: 32px; box-shadow: var(--shadow); }
+      .responsive-image { width: 100%; height: auto; border-radius: var(--radius-md); aspect-ratio: 16/9; object-fit: cover; margin-bottom: 32px; box-shadow: var(--shadow); display: block; }
       
       .card { background: rgba(255, 255, 255, 0.95); border: 2px solid var(--line); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow); margin-bottom: 30px; }
-      .card-image { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.04); }
+      .card-image { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.04); display: block; }
       
-      .recipe-meta { list-style: none; padding: 0; display: flex; gap: 16px; margin-bottom: 24px; }
+      .recipe-meta { list-style: none; display: flex; gap: 16px; margin-bottom: 24px; }
       .recipe-meta li { background: var(--soft); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 700; color: var(--primary-dark); }
       
       .grid { display: grid; gap: 24px; }
       .comments-section { background: #fff; padding: 32px; border: 2px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow); }
-      .comment-list { list-style: none; padding: 0; margin: 24px 0; }
-      .comment { background: var(--bg); padding: 16px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--primary); }
+      .comment-list { list-style: none; margin: 24px 0; }
+      .comment { background: var(--bg); padding: 16px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--primary); list-style: none; }
       
       .form-grid { display: grid; gap: 16px; }
       input, textarea { width: 100%; padding: 12px; border: 2px solid var(--line); border-radius: 8px; font: inherit; }
@@ -124,13 +98,14 @@
     <main>
       <article>
         <p class="eyebrow">Cucina Economica / Svuotafrigo</p>
+        <!-- IL TITOLO PRINCIPALE DELLA PAGINA -->
         <h1>Idee cena economica fuorisede: il ricettario salva-portafoglio</h1>
         <p class="lead">Cucinare grandi piatti con budget microscopici e ingredienti che stanno per scadere è la vera arte dello studente fuori sede. Ecco le proposte della community.</p>
         
-        <!-- FOTO PRINCIPALE COPERTINA (WIKIPEDIA) -->
+        <!-- FOTO DI COPERTINA AGGIORNATA (WIKIPEDIA SECURA) -->
         <img class="responsive-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Pasta_with_tomato_sauce.jpg/1200px-Pasta_with_tomato_sauce.jpg" alt="Cucina economica studentesca fuori sede" />
 
-        <!-- RICETTA 1: POLLO AL LIMONE (FOTO WIKIPEDIA) -->
+        <!-- RICETTA 1: POLLO AL LIMONE -->
         <section class="card">
           <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Lemon_Chicken_%282838531109%29.jpg/800px-Lemon_Chicken_%282838531109%29.jpg" alt="Bocconcini teneri di pollo al limone cotti in padella" />
           <h2>1. Il Pollo al Limone Cremoso "Salva-Budget"</h2>
@@ -159,8 +134,8 @@
           </div>
         </section>
 
-        <!-- RICETTA 2: COUSCOUS FREDDO (FOTO WIKIPEDIA) -->
-        <section class="card" style="margin-top: 24px;">
+        <!-- RICETTA 2: COUSCOUS FREDDO -->
+        <section class="card">
           <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Couscous_vegetariano_02.jpg/800px-Couscous_vegetariano_02.jpg" alt="Una ciotola fresca e colorata di couscous freddo con verdure" />
           <h2>2. Il Couscous Freddo alle Verdure Svuotafrigo</h2>
           <ul class="recipe-meta">
@@ -188,8 +163,8 @@
           </div>
         </section>
 
-        <!-- RICETTA 3: PASTA ALLE ZUCCHINE (FOTO WIKIPEDIA) -->
-        <section class="card" style="margin-top: 24px;">
+        <!-- RICETTA 3: PASTA ALLE ZUCCHINE -->
+        <section class="card">
           <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Penne_con_zucchine_e_panna.jpg/800px-Penne_con_zucchine_e_panna.jpg" alt="Un piatto cremoso di pasta penne condite con zucchine a rondelle" />
           <h2>3. La Pasta alle Zucchine dell'Ultimo Minuto</h2>
           <ul class="recipe-meta">
@@ -201,23 +176,23 @@
               <h3>Ingredienti Base</h3>
               <ul>
                 <li>80 g di pasta (penne o fusilli)</li>
-                <li>1 zucchina di medie dimensioni</li>
+                <li>1 zucchina di medie dimensions</li>
                 <li>Mezza cipolla piccola o uno spicchio d'aglio</li>
-                <li>1 cucchiaio di olio EVO, sale, pepe (o formaggio grattugiato)</li>
+                <li>1 cucchiaio di olio EVO, sale, pepe</li>
               </ul>
             </div>
             <div>
               <h3>Preparazione</h3>
               <ol>
-                <li>Metti a bollire l'acqua per la pasta. Nel frattempo, lava la zucchina e tagliala a rondelle sottili o a cubetti.</li>
-                <li>In una padella fai soffriggere la cipolla tritata con l'olio, aggiungi le zucchine e cuoci a fuoco medio per 10 minuti finché non si ammorbidiscono.</li>
-                <li>Scola la pasta al dente direttamente nella padella con le zucchine, aggiungi un cucchiaio di acqua di cottura, mescola sul fuoco per un minuto e aggiungi il pepe.</li>
+                <li>Metti a bollire l'acqua per la pasta. Nel frattempo, lava la zucchina e tagliala a rondelle sottili.</li>
+                <li>In una padella fai soffriggere la cipolla con l'olio, aggiungi le zucchine e cuoci a fuoco medio per 10 minuti.</li>
+                <li>Scola la pasta al dente direttamente nella padella, aggiungi un cucchiaio di acqua di cottura, salta un minuto e servi.</li>
               </ol>
             </div>
           </div>
         </section>
 
-        <!-- AREA COMMENTI UGC -->
+        <!-- AREA COMMENTI -->
         <section class="comments-section">
           <p class="eyebrow">User Generated Content</p>
           <h2>Cosa c'è nel tuo frigo stasera? Lascia un consiglio</h2>
